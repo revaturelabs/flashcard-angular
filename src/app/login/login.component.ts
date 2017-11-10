@@ -24,12 +24,12 @@ export class LoginComponent implements OnInit {
       ]),
       'password': new FormControl(this.formData.password, [
         Validators.required,
-        Validators.minLength(8),
-        Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z]\d$@$!%*#?&]{8,}$/)
+        Validators.minLength(3)
       ])
     });
   }
   onSubmit() {
+    this.userService.login({username: this.formData.email, password: this.formData.password});
   }
 
 }
