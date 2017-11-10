@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {UserService} from "../user.service";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -14,9 +15,17 @@ export class LoginComponent implements OnInit {
     email: null,
     password: null
   };
-  constructor(public userService: UserService) { }
+  constructor(public userService: UserService, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    const error = this.route.snapshot.paramMap.get('error');
+    if (error) {
+      console.log('error');
+      this.formData = {
+        email: null,
+        password: null
+      };
+    }
     this.loginForm = new FormGroup({
       'email': new FormControl(this.formData.email, [
         Validators.required,
@@ -24,12 +33,12 @@ export class LoginComponent implements OnInit {
       ]),
       'password': new FormControl(this.formData.password, [
         Validators.required,
-        Validators.minLength(8),
-        Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z]\d$@$!%*#?&]{8,}$/)
+        Validators.minLength(3)
       ])
     });
   }
   onSubmit() {
+    this.userService.login({username: this.formData.email, password: this.formData.password});
   }
 
 }
