@@ -4,12 +4,22 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AddQuestionComponent } from './add-question/add-question.component';
 import { QuestionBankComponent } from './question-bank/question-bank.component';
+import {LoginComponent} from "./login/login.component";
+import {HomeComponent} from "./home/home.component";
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/question-bank',
+    redirectTo: '/home',
     pathMatch: 'full'
+  },
+  {
+    path: 'home',
+    component: HomeComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   },
   {
     path: 'question-bank',

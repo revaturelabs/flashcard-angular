@@ -12,6 +12,10 @@ import { FlashcardService } from './flashcard.service';
 import { LoginComponent } from './login/login.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import { CategoryService } from './category.service';
+import {UserService} from './user.service';
+import {CookieService} from 'ng2-cookies';
+import { HomeComponent } from './home/home.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -20,14 +24,16 @@ import { CategoryService } from './category.service';
     StudyModeComponent,
     ApprovalComponent,
     AddQuestionComponent,
-    LoginComponent
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [FlashcardService, CategoryService],
+  providers: [FlashcardService, CategoryService, UserService, CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
