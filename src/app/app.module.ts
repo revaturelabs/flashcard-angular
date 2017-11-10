@@ -6,6 +6,9 @@ import { QuestionBankComponent } from './question-bank/question-bank.component';
 import { StudyModeComponent } from './study-mode/study-mode.component';
 import { ApprovalComponent } from './approval/approval.component';
 import { AddQuestionComponent } from './add-question/add-question.component';
+import { AppRoutingModule } from './/app-routing.module';
+
+import { FlashcardService } from './flashcard.service';
 
 @NgModule({
   declarations: [
@@ -16,9 +19,10 @@ import { AddQuestionComponent } from './add-question/add-question.component';
     AddQuestionComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
-  providers: [],
+  providers: [FlashcardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
