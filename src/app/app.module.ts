@@ -11,6 +11,7 @@ import { AppRoutingModule } from './/app-routing.module';
 import { FlashcardService } from './flashcard.service';
 import { LoginComponent } from './login/login.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import { CategoryService } from './category.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import {ReactiveFormsModule} from '@angular/forms';
     AppRoutingModule,
     ReactiveFormsModule
   ],
-  providers: [FlashcardService],
+  providers: [FlashcardService, CategoryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
