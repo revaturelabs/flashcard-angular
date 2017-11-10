@@ -1,3 +1,25 @@
-<p>
-  question-bank works!
-</p>
+<div class="container">
+  <h2>Question Bank</h2>
+  <div *ngFor="let cat of categories">
+    <div class= "container">
+      <button class="btn btn-block" (click)="open(cat)">{{cat}}</button>
+    </div>
+    <div *ngIf="isOpen(cat)">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Question</th>
+            <th scope="col">Answer</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let fc of getFlashcardsByCategory(cat)" (click)="onSelect(fc)">
+            <th scope="row">{{fc.id}}</th>
+            <td>{{fc.question}}</td>
+            <td>{{fc.answer}}</td>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

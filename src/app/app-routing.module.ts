@@ -8,7 +8,7 @@ import { QuestionBankComponent } from './question-bank/question-bank.component';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/add-question',
+    redirectTo: '/question-bank',
     pathMatch: 'full'
   },
   {
@@ -22,6 +22,10 @@ const routes: Routes = [
   {
     path: 'add-question',
     component: AddQuestionComponent
+  },
+  {
+    path: 'question-bank',
+    component: QuestionBankComponent
   }
 ];
 

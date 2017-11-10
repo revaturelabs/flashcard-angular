@@ -21,6 +21,9 @@ export class FlashcardService {
   getFlashcard(id: number): Observable<Flashcard> {
     return of(FLASHCARDS.find( flashcard => flashcard.id === id));
   }
+  getFlashcardsByCategory(category: string): Observable<Flashcard[]> {
+    return of(FLASHCARDS.filter( flashcard => flashcard.category === category ));
+  }
   update(flashcard: Flashcard): Observable<Flashcard> {
     return of(flashcard);
   }
