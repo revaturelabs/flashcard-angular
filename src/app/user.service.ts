@@ -24,7 +24,8 @@ export class UserService {
     }
   }
   getUser() {
-    let token = JSON.parse(this.cookieService.get('access_token'));
+    const token = JSON.parse(this.cookieService.get('access_token')).token;
+    this.http.get(`http://localhost:8765/flashcard-user-service/user?token=${token}`);
   }
 
 }
