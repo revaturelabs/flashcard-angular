@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AddQuestionComponent } from './add-question/add-question.component';
 import { QuestionBankComponent } from './question-bank/question-bank.component';
+import { StudyModeComponent } from './study-mode/study-mode.component';
 import {LoginComponent} from './login/login.component';
 import {HomeComponent} from './home/home.component';
 
@@ -36,6 +37,10 @@ const routes: Routes = [
   {
     path: 'question-bank',
     component: QuestionBankComponent
+  },
+  {
+    path: 'study-mode',
+    component: StudyModeComponent
   }
 ];
 

@@ -15,7 +15,7 @@ import { CategoryService } from './category.service';
 import {UserService} from './user.service';
 import {CookieService} from 'ng2-cookies';
 import { HomeComponent } from './home/home.component';
-import {HttpClientModule} from "@angular/common/http";
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [

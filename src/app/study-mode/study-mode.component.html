@@ -1,3 +1,8 @@
-<p>
-  study-mode works!
-</p>
+<div class="container">
+    <h2>Select Categories</h2>
+    <div *ngFor="let cat of categories">
+      <div class= "checkbox">
+        <input type="checkbox" (click)="open(cat)">{{cat}}</input>
+      </div>
+    </div>
+  </div>
