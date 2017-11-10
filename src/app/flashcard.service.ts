@@ -1,4 +1,7 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {RequestOptions, Headers} from '@angular/http';
 
 import { Observable } from 'rxjs/observable';
 
@@ -15,7 +18,10 @@ const FLASHCARDS: Flashcard[] = [
 
 @Injectable()
 export class FlashcardService {
-  constructor() { }
+  constructor(
+    private router: Router,
+    private http: HttpClient
+  ) { }
 
   getFlashcards(): Observable<Flashcard[]> {
     return of(FLASHCARDS);
