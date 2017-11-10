@@ -9,6 +9,8 @@ import { AddQuestionComponent } from './add-question/add-question.component';
 import { AppRoutingModule } from './/app-routing.module';
 
 import { FlashcardService } from './flashcard.service';
+import { LoginComponent } from './login/login.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,11 +18,13 @@ import { FlashcardService } from './flashcard.service';
     QuestionBankComponent,
     StudyModeComponent,
     ApprovalComponent,
-    AddQuestionComponent
+    AddQuestionComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [FlashcardService],
   bootstrap: [AppComponent]

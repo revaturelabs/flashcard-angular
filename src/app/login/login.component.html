@@ -1,0 +1,30 @@
+<div class="container">
+  <form novalidate [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="alert alert-warning"
+         *ngIf="loginForm.controls.email.errors && loginForm.controls.email?.touched">
+      An email is required and must be a valid email address
+    </div>
+    <div class="form-group row">
+      <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+      <div class="col-sm-10">
+        <input [(ngModel)]="this.formData.email" type="email" class="form-control" id="inputEmail3" formControlName="email" placeholder="Email" required>
+      </div>
+    </div>
+    <div class="alert alert-warning"
+         *ngIf="loginForm.controls.password.errors && loginForm.controls.password?.touched">
+      A password is required and must be at least 8 characters
+    </div>
+    <div class="form-group row">
+      <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+      <div class="col-sm-10">
+        <input [(ngModel)]="this.formData.password" type="password" class="form-control" id="inputPassword3" formControlName="password" placeholder="Password" required>
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="offset-sm-2 col-sm-10">
+        <button type="submit" class="btn btn-primary" [disabled]="this.loginForm.invalid">Sign in</button>
+      </div>
+    </div>
+  </form>
+</div>
+
