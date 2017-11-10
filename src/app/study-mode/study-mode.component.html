@@ -1,8 +1,17 @@
 <div class="container">
+  <div *ngIf="!studying">
     <h2>Select Categories</h2>
-    <div *ngFor="let cat of categories">
-      <div class= "checkbox">
-        <input type="checkbox" (click)="open(cat)">{{cat}}</input>
+    <div class="form-group">
+      <div *ngFor="let cat of categories" class="checkbox">
+        <label><input type="checkbox" value="" (change)="updateList($event, cat)"> {{cat}}</label>
       </div>
     </div>
+    <button class="btn btn-primary" (click)="study(cats)">Study</button>
   </div>
+
+<div *ngIf="studying">
+  <h3>{{fc.question}}</h3>
+  <label>Answer</label><input type="text">
+  <button class="btn btn-primary" (click)="next()">Submit</button>
+</div>
+</div>

@@ -1,15 +1,53 @@
 import { Component, OnInit } from '@angular/core';
 
+import { CategoryService } from '../category.service';
+import { FlashcardService } from '../flashcard.service';
+
+import { Flashcard } from '../flashcard';
+
 @Component({
   selector: 'app-study-mode',
   templateUrl: './study-mode.component.html',
   styleUrls: ['./study-mode.component.css']
 })
 export class StudyModeComponent implements OnInit {
+  private categories: string[];
+  private studyCats: string[];
+  private studying: boolean;
+  private fc: Flashcard;
+  private flashcards: Flashcard[];
 
-  constructor() { }
+  constructor(
+    private categoryService: CategoryService,
+    private flashcardService: FlashcardService
+  ) { }
 
   ngOnInit() {
+    this.categoryService.getCategories()
+    .subscribe(categories => this.categories = categories);
+    this.studyCats = [];
+    this.studying = false;
+    this.flashcards = [];
+    this.fc = { id: 0, question: '', answer: '', category: '', status: ''};
   }
 
+  updateList(event, cat): void {
+    if (this.studyCats.indexOf(cat) !== -1) {
+      this.studyCats.splice(this.studyCats.indexOf(cat), 1);
+    } else {
+      this.studyCats.splice(this.studyCats.push(cat));
+    }
+  }
+
+  study(categories): void {
+    this.studying = true;
+    this.studyCats.forEach(cat => this.flashcardService.getFlashcardsByCategory(cat)
+    .subscribe(fcs => fcs.forEach(fc => this.flashcards.push(fc))));
+    console.log(this.flashcards);
+    this.fc = this.flashcards[Math.floor(Math.random() * this.flashcards.length)];
+  }
+
+  next(): void {
+    this.fc = this.flashcards[Math.floor(Math.random() * this.flashcards.length)];
+  }
 }
