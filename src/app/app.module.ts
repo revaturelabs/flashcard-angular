@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { QuestionBankComponent } from './question-bank/question-bank.component';
@@ -20,7 +21,8 @@ import { FlashcardService } from './flashcard.service';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [FlashcardService],
   bootstrap: [AppComponent]
