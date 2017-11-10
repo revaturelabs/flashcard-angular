@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { QuestionBankComponent } from './question-bank/question-bank.component';
@@ -10,6 +10,7 @@ import { AddQuestionComponent } from './add-question/add-question.component';
 import { AppRoutingModule } from './/app-routing.module';
 
 import { FlashcardService } from './flashcard.service';
+import { CategoryService } from './category.service';
 
 @NgModule({
   declarations: [
@@ -22,9 +23,10 @@ import { FlashcardService } from './flashcard.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [FlashcardService],
+  providers: [FlashcardService, CategoryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

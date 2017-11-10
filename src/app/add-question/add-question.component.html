@@ -1,12 +1,27 @@
-<h1>Add a question</h1>
-<form>
-  <div class = "form-group">
-    <label for="category">Category:</label>
-    <!-- todo: make this a dropdown -->
-  </div>
-  <div class= "form-group">
-    <label for="question">Question:</label>
-    <input type="text" class="form-control" placeholder="What is your Question?">
-  </div>
-  
-</form>
+<div class="container">
+  <h1>Add a question</h1>
+  <form novalidate [formGroup]="questionForm" (ngSubmit)="save(flashcard)">
+    <div class="alert alert-warning" *ngIf="questionForm.controls.category.errors || questionForm.controls.question.errors || questionForm.controls.question.errors">
+
+    </div>
+
+    <div class="form-group">
+      <div class="form-group row">
+        <label for="category">Category:</label>
+        <select formControlName="category" [(ngModel)]="flashcard.category" class="custom-select" name="category">
+          <option selected>Choose a category</option>
+          <option *ngFor="let cat of categories">{{cat}}</option>
+        </select>
+      </div>
+      <div class="form-group row">
+        <label for="question">Question:</label>
+        <input formControlName="question" name="question" [(ngModel)]="flashcard.question" type="text" class="form-control" placeholder="What is your Question?">
+      </div>
+      <div class="form-group row">
+        <label for="answer">Answer:</label>
+        <input formControlName="answer" name="answer" [(ngModel)]="flashcard.answer" type="text" class="form-control" placeholder="The Answer">
+      </div>
+      <button type="button" class="btn btn-primary" (click)="save(flashcard)">Submit</button>
+    </div>
+  </form>
+</div>
