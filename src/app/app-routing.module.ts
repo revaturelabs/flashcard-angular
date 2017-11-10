@@ -18,6 +18,10 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
+    path: 'login/:error',
+    component: LoginComponent
+  },
+  {
     path: 'login',
     component: LoginComponent
   },
