@@ -10,7 +10,7 @@ export class UserService {
   constructor(private cookieService: CookieService, private router: Router, private http: HttpClient) { }
 
   login(loginData: {username: string, password: string}) {
-    this.http.post('http://localhost:8086/login', JSON.stringify(loginData), {
+    this.http.post('http://localhost:8765/flashcard-user-service/login', JSON.stringify(loginData), {
       'headers': new HttpHeaders({'Content-Type': 'application/json'})
     })
       .subscribe(data => {
@@ -22,6 +22,9 @@ export class UserService {
     if (!this.cookieService.get('access_token')) {
       this.router.navigate(['/login']);
     }
+  }
+  getUser() {
+    let token = JSON.parse(this.cookieService.get('access_token'));
   }
 
 }
