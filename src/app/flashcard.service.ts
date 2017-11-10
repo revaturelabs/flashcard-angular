@@ -12,8 +12,11 @@ import { Flashcard } from './flashcard';
 const FLASHCARDS: Flashcard[] = [
   {id: 1, question: 'What is Angular', answer: 'IDK', category: 'Angular', status: 'Approved'},
   {id: 2, question: 'What is a directive', answer: 'IDK', category: 'Angular', status: 'Approved'},
-  {id: 3, question: 'What is a directive', answer: 'IDK', category: 'JavaScript', status: 'Approved'},
-  {id: 4, question: 'What is a directive', answer: 'IDK', category: 'Servlets', status: 'Approved'}
+  {id: 3, question: 'What is a Java', answer: 'Better than .net', category: 'JavaScript', status: 'Approved'},
+  {id: 4, question: 'What is C#', answer: 'Not as Good as Java', category: 'Angular', status: 'Approved'},
+  {id: 4, question: 'What is Pizza', answer: 'Definitely better than C#', category: 'Angular', status: 'Approved'}
+
+ 
 ];
 
 @Injectable()

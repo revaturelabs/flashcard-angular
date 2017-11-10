@@ -15,6 +15,7 @@ export class StudyModeComponent implements OnInit {
   private studyCats: string[];
   private studying: boolean;
   private fc: Flashcard;
+  private question: boolean;
   private flashcards: Flashcard[];
 
   constructor(
@@ -27,6 +28,7 @@ export class StudyModeComponent implements OnInit {
     .subscribe(categories => this.categories = categories);
     this.studyCats = [];
     this.studying = false;
+    this.question = true;
     this.flashcards = [];
     this.fc = { id: 0, question: '', answer: '', category: '', status: ''};
   }
@@ -48,6 +50,10 @@ export class StudyModeComponent implements OnInit {
   }
 
   next(): void {
-    this.fc = this.flashcards[Math.floor(Math.random() * this.flashcards.length)];
+    if(!this.question)
+    {
+      this.fc = this.flashcards[Math.floor(Math.random() * this.flashcards.length)];
+    } 
+    this.question = !this.question;
   }
 }
