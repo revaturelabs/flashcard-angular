@@ -16,7 +16,7 @@ export class UserService {
       .subscribe(data => {
         this.cookieService.set('access_token', JSON.stringify(data));
         this.router.navigate(['/home']);
-      });
+      }, _ => this.router.navigate(['/login/error']));
   }
   checkCredentials() {
     if (!this.cookieService.get('access_token')) {
